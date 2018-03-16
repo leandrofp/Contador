@@ -12,18 +12,16 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {contador: 0, ingreso:''};
+    this.state1 = {contador: 0, ingreso:''};
  
       }
  
   insertarContador = () => {
-    console.log("ingreso" , this.ingreso)
-    this.props.counterInput(parseInt(this.state.ingreso));
-    console.log("ingreso post" , this.ingreso)
+    this.props.counterInput(this.state1.ingreso);
   }
 
   setContador = (e,value) => {
-    this.ingreso = e.target.value;
+    this.state1.ingreso = e.target.value;
   }
 
   llamoApi = () =>{
@@ -47,12 +45,12 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-
+        <divider/>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         <p>
           Contador padre : {this.props.countst}    {/* toma el valor del store*/}
-          <Conthijo conta={this.state.contador} />  {/* ADIOS */}
+          <Conthijo conta={this.state1.contador} />  {/* ADIOS */}
         </p>
         <p>  <Button onClick={this.props.counterIncrement} >Suma contador</Button> </p>
         </p>
@@ -64,13 +62,11 @@ class App extends Component {
             <Button onClick={this.insertarContador}>Ingresar</Button>
           </Form.Field>
         </Form>
-
         <Divider/>
          <p>  <Button onClick={ () => this.llamoApi() } >Llama API</Button> </p>
-         <Divider/>
+        <Divider/>
         <List>
-           {this.props.randompeople.people.map( (m) => 
- 
+          {this.props.randompeople.people.map( (m) => 
           <List.Item>
             <Image avatar src={m.picture.thumbnail} onClick={ () => this.masinfo(m.location.street,m.location.city) } />
             <List.Content>
@@ -78,13 +74,8 @@ class App extends Component {
               <List.Description>email <a><b>{m.email}</b></a> </List.Description>
             </List.Content>
           </List.Item>
- 
-
           )}
           </List>
-
-
-      
       </div>
     );
   }

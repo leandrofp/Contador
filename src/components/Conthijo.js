@@ -9,11 +9,6 @@ import {counterSet} from '../actions' ;
 
 class Conthijo extends Component {
  
-  constructor(props) {
-    super(props);
-
-      
-  }
   render() {
     return (
       <div className="App" > 

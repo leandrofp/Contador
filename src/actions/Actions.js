@@ -15,10 +15,12 @@ export const counterSet = () => {
     };
 }
 export const counterInput = (valor) => {
+    console.log("valor pre accion: ",valor);
     return {
         type: 'INPUT_COUNTER',
         payload: valor
     };
+    
 }
 
 export const fetchingPeopleRequest = () => {
