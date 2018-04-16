@@ -23,7 +23,8 @@ export default (state = initialState, action) => {
             newStore = Object.assign({},state, {...state , count1: state.count1 = 0})
             return newStore;
         case 'INPUT_COUNTER':
-            newStore = Object.assign({},state, {...state , count1: state.count1 = action.payload})
+            //newStore = Object.assign({},state, {...state , count1: state.count1 = action.payload})
+            newStore = Object.assign({},state, {...state , count1: state.count1 = parseInt(action.payload,10)})
             return newStore;
 
         case 'FETCHING_PEOPLE_REQUEST':
